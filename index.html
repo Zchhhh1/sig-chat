@@ -40,11 +40,11 @@
 <body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
-  <!-- 这里留空，如果以后想加导航可以在这儿加 -->
+  <!-- 预留导航位，如果以后想加 menu 可以在这里写 -->
 </nav>
 
-<!-- ================= HERO ================= -->
-<section class="hero is-primary is-medium">
+<!-- ================= HERO（白底，单列） ================= -->
+<section class="hero is-medium">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="has-text-centered">
@@ -126,7 +126,7 @@
           <div class="publication-links">
             <span class="link-block">
               <a href="https://arxiv.org/pdf/2509.23852"
-                 class="external-link button is-normal is-rounded is-light">
+                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="fas fa-file-pdf"></i>
                 </span>
@@ -135,7 +135,7 @@
             </span>
             <span class="link-block">
               <a href="https://arxiv.org/abs/2509.23852"
-                 class="external-link button is-normal is-rounded is-light">
+                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="ai ai-arxiv"></i>
                 </span>
@@ -161,12 +161,12 @@
           </div>
         </div>
 
-        <!-- Teaser image (单列往下排，类似 MarketGen) -->
+        <!-- Teaser image -->
         <div class="mt-5">
           <figure class="image">
             <img src="./static/images/teaser.png" alt="SIG-Chat teaser">
           </figure>
-          <p class="is-size-6 has-text-grey mt-2">
+          <p class="is-size-7 has-text-grey mt-2">
             SIG-Chat generates spatially grounded co-speech gestures that align with speech, semantics, and 3D interaction targets.
           </p>
         </div>
@@ -176,56 +176,57 @@
   </div>
 </section>
 
-<!-- ============ DIVERSE GESTURES (紧凑视频网格) ============ -->
-<section class="section has-background-light">
+<!-- ============ DIVERSE GESTURES（紧凑视频网格） ============ -->
+<section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Diverse Conversational Gestures</h2>
     <p class="subtitle is-6 has-text-centered mb-5">
       SIG-Chat produces natural pointing and gaze behaviors across different speakers and scenes.
     </p>
 
-    <div class="columns is-multiline">
+    <!-- 用紧凑网格 + 自定义 video-thumb 减少留白 -->
+    <div class="columns is-multiline is-variable is-2">
       <div class="column is-one-third-desktop is-half-tablet">
-        <figure class="image is-16by9">
+        <div class="video-thumb">
           <video autoplay muted loop playsinline controls>
             <source src="./static/videos/0827am-072_front.mp4" type="video/mp4">
           </video>
-        </figure>
+        </div>
       </div>
       <div class="column is-one-third-desktop is-half-tablet">
-        <figure class="image is-16by9">
+        <div class="video-thumb">
           <video autoplay muted loop playsinline controls>
             <source src="./static/videos/0827am-064_front.mp4" type="video/mp4">
           </video>
-        </figure>
+        </div>
       </div>
       <div class="column is-one-third-desktop is-half-tablet">
-        <figure class="image is-16by9">
+        <div class="video-thumb">
           <video autoplay muted loop playsinline controls>
             <source src="./static/videos/0827am-131_front.mp4" type="video/mp4">
           </video>
-        </figure>
+        </div>
       </div>
       <div class="column is-one-third-desktop is-half-tablet">
-        <figure class="image is-16by9">
+        <div class="video-thumb">
           <video autoplay muted loop playsinline controls>
             <source src="./static/videos/0827am-147_front.mp4" type="video/mp4">
           </video>
-        </figure>
+        </div>
       </div>
       <div class="column is-one-third-desktop is-half-tablet">
-        <figure class="image is-16by9">
+        <div class="video-thumb">
           <video autoplay muted loop playsinline controls>
             <source src="./static/videos/bcc1215pm-068_front.mp4" type="video/mp4">
           </video>
-        </figure>
+        </div>
       </div>
       <div class="column is-one-third-desktop is-half-tablet">
-        <figure class="image is-16by9">
+        <div class="video-thumb">
           <video autoplay muted loop playsinline controls>
             <source src="./static/videos/mxt1207am-003_front.mp4" type="video/mp4">
           </video>
-        </figure>
+        </div>
       </div>
     </div>
   </div>
@@ -273,89 +274,92 @@
           <figure class="image">
             <img src="./static/images/struct.png" alt="Structure Overview">
           </figure>
+          <p class="is-size-7 has-text-grey mt-2">
+            Overview of the SIG-Chat pipeline, including data collection, multimodal gesture generation, and robot deployment.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ GENERATE DEMOS ============ -->
+<!-- ============ GENERATE DEMOS（更紧凑） ============ -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Generate Demos</h2>
 
     <!-- Looking Gestures -->
-    <div class="box mt-4">
+    <div class="mt-4">
       <h3 class="title is-4">Looking Gestures</h3>
       <p class="is-size-6 has-text-grey mb-4">
         SIG-Chat generates gaze behaviors that consistently look towards the referenced target.
       </p>
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-variable is-2">
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze1.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze2.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze3.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze4.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Pointing Gestures -->
-    <div class="box mt-4">
+    <div class="mt-5">
       <h3 class="title is-4">Pointing Gestures</h3>
       <p class="is-size-6 has-text-grey mb-4">
         SIG-Chat produces pointing gestures that align with the spatial locations of interaction targets.
       </p>
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-variable is-2">
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing1.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing2.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing3.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
         <div class="column is-half">
-          <figure class="image is-16by9">
+          <div class="video-thumb">
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing4.mp4" type="video/mp4">
             </video>
-          </figure>
+          </div>
         </div>
       </div>
     </div>
@@ -376,23 +380,23 @@
           </p>
         </div>
 
-        <div class="columns is-centered">
+        <div class="columns is-centered is-variable is-2">
           <div class="column">
             <div class="content has-text-centered">
-              <figure class="image is-16by9">
+              <div class="video-thumb">
                 <video autoplay controls muted loop playsinline>
                   <source src="./static/videos/find_phone.mp4" type="video/mp4">
                 </video>
-              </figure>
+              </div>
             </div>
           </div>
           <div class="column">
             <div class="content has-text-centered">
-              <figure class="image is-16by9">
+              <div class="video-thumb">
                 <video controls playsinline muted>
                   <source src="./static/videos/drunk.mp4" type="video/mp4">
                 </video>
-              </figure>
+              </div>
             </div>
           </div>
         </div>

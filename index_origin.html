@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIG-Chat：Spatial Intent-Guided Conversational Gesture Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <!-- <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SIG-Chat：Spatial Intent-Guided Conversational Gesture Generation</h1>
+          <div class="is-size-6 publication-authors">
+            <!-- <span class="author-block">
+              <a href="https://keunhong.com">Yiheng Huang</a><sup>1,2,5*</sup>,</span>
+            <span class="author-block">
+              <a href="https://utkarshsinha.com"> Junran Peng</a><sup>2,5*</sup>,</span>
+            <span class="author-block">
+              <a href="https://jonbarron.info">Silei Shen</a><sup>2,5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://sofienbouaziz.com">Jingwei Yang</a><sup>7</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://sofienbouaziz.com">Chenghua Zhong</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.danbgoldman.com">Zeji Wei</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~seitz/">Chencheng Bai</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Yonghao He</a><sup>3</sup>
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Wei Sui</a><sup>3</sup>
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Muyi Sun</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Yan Liu</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Xu-Cheng Yin</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Man Zhang</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Zhaoxiang Zhang</a><sup>5,6</sup>
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Chuanchen Luo</a><sup>4,5</sup>
+            </span> -->
+            <span class="author-block">
+              <a>Yiheng Huang</a><sup>1,2,5*</sup>,</span>
+            <span class="author-block">
+              <a>Junran Peng</a><sup>2,5*✉</sup>,</span>
+            <span class="author-block">
+              <a>Wei Sui</a><sup>3↑</sup>,
+            </span>
+            <span class="author-block">
+              <a>Silei Shen</a><sup>2,5</sup>,
+            </span>
+            <span class="author-block">
+              <a>Jingwei Yang</a><sup>7</sup>,
+            </span>
+            <span class="author-block">
+              <a>Chenghua Zhong</a><sup>2,3</sup>,
+            </span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <a>Zeji Wei</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Chencheng Bai</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yonghao He</a><sup>3</sup>,
+            </span>
+            
+            <span class="author-block">
+              <a>Muyi Sun</a><sup>1</sup>,
+            </span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <a>Yan Liu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Xu-Cheng Yin</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Man Zhang</a><sup>1</sup>,
+            </span>
+            <!-- <span class="author-block">
+              <a>Zhaoxiang Zhang</a><sup>5,6</sup>,
+            </span> -->
+            <span class="author-block">
+              <a>Chuanchen Luo</a><sup>4,5</sup>,
+            </span>
+            <p>
+              <sup>∗</sup>: Equal contribution.
+              <sup>↑</sup>: Project leader.
+              <sup>✉</sup>: Corresponding author.
+            </p>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Beijing University of Posts and Telecommunications,</span>
+            <span class="author-block"><sup>2</sup>University of Science and Technology Beijing，</span>
+            <span class="author-block"><sup>3</sup>D-Robotics，</span>
+            <span class="author-block"><sup>4</sup>Shandong University，</span>
+            <span class="author-block"><sup>5</sup>Linketic，</span>
+            <span class="author-block"><sup>6</sup>Institute of Automation, Chinese Academy of Sciences，</span>
+            <span class="author-block"><sup>7</sup>China University of Mining And Technology</span>
+
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2509.23852"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/obs/2509.23852"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data(Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/point_together.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        SIG-Chat generate the interactive conversational gestures
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<img src="./static/images/teaser.png"
+        />
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/0827am-072_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/0827am-064_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/0827am-131_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/0827am-147_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/bcc1215pm-068_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/bcc1217am-058_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/mxt1207am-003_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="50%">
+            <source src="./static/videos/mxt1207am-015_front.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <img src="./static/images/teaser.png"
+        />
+    <div class="columns is-centered has-text-centered">
+      
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          
+          <p>
+           The accompanying actions and gestures in dialogue are often closely linked to
+          interactions with the environment, such as looking toward the interlocutor or using
+          gestures to point to the described target at appropriate moments. Speech and semantics guide the production of gestures by determining their timing (WHEN) and
+          style (HOW), while the spatial locations of interactive objects dictate their directional execution (WHERE). Existing approaches either rely solely on descriptive
+          language to generate motions or utilize audio to produce non-interactive gestures,thereby lacking the characterization of interactive timing and spatial intent. This
+          significantly limits the applicability of conversational gesture generation, whether
+          in robotics or in the fields of game and animation production. To address this
+          gap, we present a full-stack solution. We first established a unique data collection
+          method to simultaneously capture high-precision human motion and spatial intent.
+          We then developed a generation model driven by audio, language, and spatial data,
+          alongside dedicated metrics for evaluating interaction timing and spatial accuracy.
+          Finally, we deployed the solution on a humanoid robot, enabling rich, contextaware physical interactions. Our data, models, and deployment solutions will be
+          fully released.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Struct. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <h2 class="title is-3">Structure Overview</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/struct.png"
+            
+            />
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Struct. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+      <h2 class="title is-3">Generate Demos</h2>
+      <!-- <h1>model generate</h1>
+      <p>different kind of data</p> -->
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Looking Gestures</h2>
+          <p>
+            Using sig-chat you can generate gestures looking towards the target.
+          </p>
+          <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content has-text-centered">
+              
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/gaze1.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <!--/ Visual Effects. -->
+          <div class="column">
+            <div class="content has-text-centered">
+              
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/gaze2.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          </div>
+          <div class="columns is-centered">
+          <div class="column">
+            <div class="content has-text-centered">
+              
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/gaze3.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content has-text-centered">
+                
+                <video id="matting-video" controls playsinline height="100%">
+                  <source src="./static/videos/gaze4.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Pointing Gestures</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+             Using sig-chat you can generate gestures pointing towards the target.
+            </p>
+            <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content has-text-centered">
+              
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/pointing1.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <!--/ Visual Effects. -->
+          <div class="column">
+            <div class="content has-text-centered">
+              
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/pointing2.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          </div>
+          <div class="columns is-centered">
+          <div class="column">
+            <div class="content has-text-centered">
+              
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/pointing3.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content has-text-centered">
+                
+                <video id="matting-video" controls playsinline height="100%">
+                  <source src="./static/videos/pointing4.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+
+            </div>
+          </div>
+        </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Deploy on Humanoid Robot</h2>
+
+        <!-- Interpolating. -->
+        <!-- <h3 class="title is-4">Interpolating states</h3>
+        <div class="content has-text-justified">
+          <p>
+            We can also animate the scene by interpolating the deformation latent codes of two input
+            frames. Use the slider here to linearly interpolate between the left frame and the right
+            frame.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_start.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Start Frame</p>
+          </div>
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_end.jpg"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">End Frame</p>
+          </div>
+        </div>
+        <br/> -->
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <!-- <h3 class="title is-4">Deploy on Real Robot</h3> -->
+        <div class="content has-text-justified">
+          <p>
+            We further deploy our motion controller on the Unitree G1 robot, integrating a YOLO-World model for attention-target detection and a reinforcement-learning policy that enables the robot to orient toward the detected target.
+          </p>
+        </div>
+        <!-- <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/replay.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/replay.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+
+        <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content has-text-centered">
+              <!-- <p>
+                Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+                would be impossible without nerfies since it would require going through a wall.
+              </p> -->
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/find_phone.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <!--/ Visual Effects. -->
+
+          <!-- Matting. -->
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content has-text-centered">
+                <!-- <p>
+                  As a byproduct of our method, we can also solve the matting problem by ignoring
+                  samples that fall outside of a bounding box during rendering.
+                </p> -->
+                <video id="matting-video" controls playsinline height="100%">
+                  <source src="./static/videos/drunk.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+    <!-- Concurrent Work. -->
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+          </p>
+          <p>
+            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+            both use deformation fields to model non-rigid scenes.
+          </p>
+          <p>
+            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+          </p>
+          <p>
+            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{huang2025sigchatspatialintentguidedconversational,
+      title={SIG-Chat: Spatial Intent-Guided Conversational Gesture Generation Involving How, When and Where}, 
+      author={Yiheng Huang and Junran Peng and Silei Shen and Jingwei Yang and ZeJi Wei and ChenCheng Bai and Yonghao He and Wei Sui and Muyi Sun and Yan Liu and Xu-Cheng Yin and Man Zhang and Zhaoxiang Zhang and Chuanchen Luo},
+      year={2025},
+      eprint={2509.23852},
+      archivePrefix={arXiv},
+      primaryClass={cs.GR},
+      url={https://arxiv.org/abs/2509.23852}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/2509.23852v3.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <!-- <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a> -->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -83,56 +83,21 @@
 </nav>
 
 
-<section class="hero">
+<section class="hero is-primary is-medium">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SIG-Chat：Spatial Intent-Guided Conversational Gesture Generation</h1>
-          <div class="is-size-6 publication-authors">
-            <!-- <span class="author-block">
-              <a href="https://keunhong.com">Yiheng Huang</a><sup>1,2,5*</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com"> Junran Peng</a><sup>2,5*</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Silei Shen</a><sup>2,5</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Jingwei Yang</a><sup>7</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Chenghua Zhong</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Zeji Wei</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Chencheng Bai</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Yonghao He</a><sup>3</sup>
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Wei Sui</a><sup>3</sup>
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Muyi Sun</a><sup>1</sup>
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Yan Liu</a><sup>2</sup>
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Xu-Cheng Yin</a><sup>2</sup>
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Man Zhang</a><sup>1</sup>
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Zhaoxiang Zhang</a><sup>5,6</sup>
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Chuanchen Luo</a><sup>4,5</sup>
-            </span> -->
+      <div class="columns is-vcentered">
+        <!-- 左侧：标题 & 作者 -->
+        <div class="column is-7 has-text-centered">
+          <h1 class="title is-1 publication-title">
+            SIG-Chat: Spatial Intent-Guided Conversational Gesture Generation
+          </h1>
+          <p class="subtitle is-4 mt-3">
+            Conversational gestures with <strong>How</strong>, <strong>When</strong> and <strong>Where</strong>.
+          </p>
+
+          <!-- 作者列表（保持你原来的，只是包一层） -->
+          <div class="is-size-6 publication-authors mt-4">
             <span class="author-block">
               <a>Yiheng Huang</a><sup>1,2,5*</sup>,</span>
             <span class="author-block">
@@ -160,7 +125,6 @@
             <span class="author-block">
               <a>Yonghao He</a><sup>3</sup>,
             </span>
-            
             <span class="author-block">
               <a>Muyi Sun</a><sup>1</sup>,
             </span>
@@ -175,12 +139,11 @@
             <span class="author-block">
               <a>Man Zhang</a><sup>1</sup>,
             </span>
-            <!-- <span class="author-block">
-              <a>Zhaoxiang Zhang</a><sup>5,6</sup>,
-            </span> -->
             <span class="author-block">
               <a>Chuanchen Luo</a><sup>4,5</sup>,
             </span>
+          </div>
+          <div class="is-size-6 mt-2">
             <p>
               <sup>∗</sup>: Equal contribution.
               <sup>↑</sup>: Project leader.
@@ -188,23 +151,22 @@
             </p>
           </div>
 
-          <div class="is-size-5 publication-authors">
+          <div class="is-size-6 publication-authors mt-3">
             <span class="author-block"><sup>1</sup>Beijing University of Posts and Telecommunications,</span>
-            <span class="author-block"><sup>2</sup>University of Science and Technology Beijing，</span>
-            <span class="author-block"><sup>3</sup>D-Robotics，</span>
-            <span class="author-block"><sup>4</sup>Shandong University，</span>
-            <span class="author-block"><sup>5</sup>Linketic，</span>
-            <span class="author-block"><sup>6</sup>Institute of Automation, Chinese Academy of Sciences，</span>
+            <span class="author-block"><sup>2</sup>University of Science and Technology Beijing,</span>
+            <span class="author-block"><sup>3</sup>D-Robotics,</span>
+            <span class="author-block"><sup>4</sup>Shandong University,</span>
+            <span class="author-block"><sup>5</sup>Linketic,</span>
+            <span class="author-block"><sup>6</sup>Institute of Automation, CAS,</span>
             <span class="author-block"><sup>7</sup>China University of Mining And Technology</span>
-
           </div>
 
-          <div class="column has-text-centered">
+          <!-- 按钮区 -->
+          <div class="column has-text-centered mt-4">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
                 <a href="https://arxiv.org/pdf/2509.23852"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-normal is-rounded is-light">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
@@ -212,71 +174,57 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/obs/2509.23852"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="https://arxiv.org/abs/2509.23852"
+                   class="external-link button is-normal is-rounded is-light">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-              <!-- Code Link. -->
               <span class="link-block">
-                <a
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-light is-outlined">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code(Coming Soon)</span>
+                  <span>Code (Coming Soon)</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
               <span class="link-block">
-                <a
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-light is-outlined">
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
-                  <span>Data(Coming Soon)</span>
+                  <span>Data (Coming Soon)</span>
                 </a>
               </span>
             </div>
-
           </div>
         </div>
+
+        <!-- 右侧：teaser 卡片 -->
+        <div class="column is-5">
+          <div class="card teaser-card">
+            <div class="card-image">
+              <figure class="image is-3by2">
+                <img src="./static/images/teaser.png" alt="SIG-Chat teaser">
+              </figure>
+            </div>
+            <div class="card-content py-3">
+              <p class="is-size-7 has-text-grey">
+                SIG-Chat generates spatially grounded conversational gestures that align with speech, semantics, and 3D interaction targets.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/point_together.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        SIG-Chat generate the interactive conversational gestures
-      </h2>
-    </div>
-  </div>
-</section> -->
 
-<img src="./static/images/teaser.png"
-        />
-
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -331,15 +279,132 @@
       </div>
     </div>
   </div>
+</section> -->
+
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Diverse Conversational Gestures</h2>
+    <p class="subtitle is-6 has-text-centered mb-5">
+      SIG-Chat generates synchronized gaze and pointing gestures for different speakers and scenarios.
+    </p>
+
+    <div class="columns is-multiline">
+      <!-- 每个视频一个 card -->
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/0827am-072_front.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <div class="card-content py-3">
+            <p class="is-size-7 has-text-grey">
+              Conversational gestures with spatially aware pointing.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/0827am-064_front.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <div class="card-content py-3">
+            <p class="is-size-7 has-text-grey">
+              Natural co-speech motion with interactive targets.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/0827am-131_front.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <div class="card-content py-3">
+            <p class="is-size-7 has-text-grey">
+              Robustness to different speakers and styles.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 再塞几个你想展示的 -->
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/0827am-147_front.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <div class="card-content py-3">
+            <p class="is-size-7 has-text-grey">
+              Rich upper-body gestures aligned with speech.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/bcc1215pm-068_front.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <div class="card-content py-3">
+            <p class="is-size-7 has-text-grey">
+              Interactive behaviors in multi-target scenes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/mxt1207am-003_front.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+          <div class="card-content py-3">
+            <p class="is-size-7 has-text-grey">
+              Smooth and consistent long-term interactions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
 
 
 
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
-    <img src="./static/images/teaser.png"
-        />
+    <!-- <img src="./static/images/teaser.png"
+        /> -->
     <div class="columns is-centered has-text-centered">
       
       <div class="column is-four-fifths">
@@ -396,6 +461,75 @@
     <!--/ Paper video. -->
   </div>
 </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Generate Demos</h2>
+
+    <!-- Looking Gestures -->
+    <div class="box mt-4">
+      <h3 class="title is-4">Looking Gestures</h3>
+      <p class="is-size-6 has-text-grey mb-4">
+        SIG-Chat generates gaze behaviors that consistently look towards the referenced target.
+      </p>
+
+      <div class="columns is-multiline">
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-16by9">
+                <video autoplay muted loop playsinline controls>
+                  <source src="./static/videos/gaze1.mp4" type="video/mp4">
+                </video>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-16by9">
+                <video autoplay muted loop playsinline controls>
+                  <source src="./static/videos/gaze2.mp4" type="video/mp4">
+                </video>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-16by9">
+                <video autoplay muted loop playsinline controls>
+                  <source src="./static/videos/gaze3.mp4" type="video/mp4">
+                </video>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-16by9">
+                <video autoplay muted loop playsinline controls>
+                  <source src="./static/videos/gaze4.mp4" type="video/mp4">
+                </video>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pointing Gestures（按同样格式自己改） -->
+    <!-- ... -->
+  </div>
+</section>
+
 
 
 <section class="section">
@@ -526,6 +660,8 @@
       </div>
     </div>
     <!--/ Matting. -->
+
+
 
     <!-- Animation. -->
     <div class="columns is-centered">

@@ -184,7 +184,7 @@
       SIG-Chat produces natural pointing and gaze behaviors across different speakers and scenes.
     </p>
 
-    <!-- 用紧凑网格 + video-thumb 减少留白 -->
+    <!-- 紧凑网格 -->
     <div class="columns is-multiline is-variable is-2">
       <div class="column is-one-third-desktop is-half-tablet">
         <div class="video-thumb">
@@ -275,7 +275,7 @@
             <img src="./static/images/struct.png" alt="Structure Overview">
           </figure>
           <p class="is-size-7 has-text-grey mt-2">
-            Architecture of the denoising network. The model is a multi-layer diffusion-transformer
+            Figure 3: Architecture of the denoising network. The model is a multi-layer diffusion-transformer
             with two fusion modules (speech fusion and intent fusion) that integrates audio, transcript, initial
             posture description, intent category, and target trajectory as multimodal conditions to estimate the
             clean gesture x̂0 from noisy gesture xt at diffusion timestep t. Multimodal inputs are processed and
@@ -287,7 +287,7 @@
   </div>
 </section>
 
-<!-- ============ GENERATE DEMOS（4个一行，小视频） ============ -->
+<!-- ============ GENERATE DEMOS（4个一行，小视频 + 文本） ============ -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Generate Demos</h2>
@@ -301,6 +301,10 @@
       <div class="columns is-multiline is-variable is-1">
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              I can hear the subway braking. <br>
+              There, that train is gliding to the platform.
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze1.mp4" type="video/mp4">
             </video>
@@ -308,6 +312,10 @@
         </div>
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              Oh... that's too bad. Bye bye. <br>
+              (She walks away towards the door.)
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze2.mp4" type="video/mp4">
             </video>
@@ -315,6 +323,10 @@
         </div>
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              The chopper’s rotor is getting louder. <br>
+              Look at that, the helicopter is coming along the river.
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze3.mp4" type="video/mp4">
             </video>
@@ -322,6 +334,9 @@
         </div>
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              Excuse me. Doesn't this come with a side salad?
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/gaze4.mp4" type="video/mp4">
             </video>
@@ -339,6 +354,10 @@
       <div class="columns is-multiline is-variable is-1">
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              That file you’re asking about? I think I saw it on the desk yesterday... <br>
+              Wait a second, yeah, it’s over there.
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing1.mp4" type="video/mp4">
             </video>
@@ -346,6 +365,10 @@
         </div>
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              Hey, guess who I just saw? <br>
+              Right over there.
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing2.mp4" type="video/mp4">
             </video>
@@ -353,6 +376,10 @@
         </div>
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              The novel you wanted is in the fiction section— <br>
+              look, that shelf with the blue spines!
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing3.mp4" type="video/mp4">
             </video>
@@ -360,6 +387,10 @@
         </div>
         <div class="column is-one-quarter-desktop is-half-tablet">
           <div class="video-thumb small-thumb">
+            <p class="is-size-7 has-text-grey mb-1">
+              The ball just rolled off—see? <br>
+              It’s bouncing toward the left side!
+            </p>
             <video autoplay muted loop playsinline controls>
               <source src="./static/videos/pointing4.mp4" type="video/mp4">
             </video>

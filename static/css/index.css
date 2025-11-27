@@ -179,23 +179,22 @@ body {
   --columnGap: 0.75rem; /* Bulma 用这个变量控制 gap */
 }
 
-/* 让 demo 小卡片内部是上下布局 */
+/* 小 demo 卡片通用样式（可保持不变） */
 .video-thumb.small-thumb {
-  display: flex;
-  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* 上面的文字区域：固定高度，保证四个视频起始线对齐 */
+/* 让文字区域有统一的最小高度，比如容纳最多三行小字 */
 .video-thumb.small-thumb p {
-  flex: 0 0 3.6em;   /* 大约两行 is-size-7 小字，你可以自己微调这个值 */
+  min-height: 4.6em;   /* 你可以根据显示情况微调：4.4 / 4.8 都可以试 */
   margin-bottom: 0.35rem;
 }
 
-/* 下面的视频占剩余空间，宽度统一 */
+/* 视频统一宽度，自动高度 */
 .video-thumb.small-thumb video {
-  flex: 1 1 auto;
+  display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;  /* 如果想让画面更“充满”可以保留，不喜欢可以删掉 */
 }
 

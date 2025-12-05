@@ -275,7 +275,7 @@
             <img src="./static/images/struct.png" alt="Structure Overview">
           </figure>
           <p class="is-size-7 has-text-grey mt-2">
-            Figure 3: Architecture of the denoising network. The model is a multi-layer diffusion-transformer
+            Figure1:Architecture of the denoising network. The model is a multi-layer diffusion-transformer
             with two fusion modules (speech fusion and intent fusion) that integrates audio, transcript, initial
             posture description, intent category, and target trajectory as multimodal conditions to estimate the
             clean gesture x̂0 from noisy gesture xt at diffusion timestep t. Multimodal inputs are processed and
@@ -286,6 +286,85 @@
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered mb-5">Key Components</h2>
+
+    <div class="columns">
+
+      <!-- Dataset Card -->
+      <div class="column">
+        <div class="card" style="border-radius: 8px;">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <!-- TODO: Replace with your dataset figure -->
+              <img src="./static/images/dataset.png" alt="Dataset Overview">
+            </figure>
+          </div>
+          <div class="card-content">
+            <h3 class="title is-5">Dataset</h3>
+            <p class="content is-size-7">
+              • First dataset targeting spatial-interaction intents in conversational gestures.<br>
+              • 11 hours, 7,123 sequences with gaze and left/right pointing behaviors.<br>
+              • Captured via Xsens MVN + HTC Tracker with synchronized audio–motion–trajectory.<br>
+              • Includes audio, transcript, motion, initial pose, intent type, 3D target trajectory, timestamps.<br>
+              • 15 categories of static/dynamic target objects.<br>
+              • Provides decoupled spatial labels for easy transfer across camera setups and robots.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Baseline Card -->
+      <div class="column">
+        <div class="card" style="border-radius: 8px;">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <!-- TODO: Replace with your model architecture figure -->
+              <img src="./static/images/model.png" alt="Baseline Model">
+            </figure>
+          </div>
+          <div class="card-content">
+            <h3 class="title is-5">Baseline</h3>
+            <p class="content is-size-7">
+              • Diffusion Transformer for spatially precise gesture synthesis.<br>
+              • Inputs: audio (WavLM), transcript (FastText), intent category, CLIP pose text, 3D trajectory.<br>
+              • Multi-modal encoders align all modalities at 20 FPS.<br>
+              • Speech-Aware & Intent-Aware attention inject rhythm and spatial direction.<br>
+              • Produces gestures that match content, prosody, and target direction.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metrics Card -->
+      <div class="column">
+        <div class="card" style="border-radius: 8px;">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <!-- TODO: Replace with your metrics figure -->
+              <img src="./static/images/metrics.png" alt="Evaluation Metrics">
+            </figure>
+          </div>
+          <div class="card-content">
+            <h3 class="title is-5">Metrics</h3>
+            <p class="content is-size-7">
+              • IAD: angular deviation between execution and target direction.<br>
+              • Gaze: head/face orientation vs. eye–target vector.<br>
+              • Pointing: arm/hand direction vs. wrist–target vector.<br>
+              • IAR@k: spatial accuracy within angle threshold.<br>
+              • IoU@k: temporal accuracy of interaction segments.<br>
+              • FGD / Beat Consistency / Diversity evaluate naturalness and rhythm alignment.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 <!-- ============ GENERATE DEMOS（4个一行，小视频 + 文本） ============ -->
 <section class="section">

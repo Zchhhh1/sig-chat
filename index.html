@@ -432,7 +432,126 @@
   </div>
 </section>
 
+<!-- ablation_study -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Ablation Study</h2>
 
+    <!-- C.1 Quantitative evaluation on BEATv2 -->
+    <div class="columns is-vcentered mt-4">
+      <div class="column is-7">
+        <h3 class="title is-4">C.1 Generalization on BEATv2</h3>
+        <p class="is-size-6 has-text-justified">
+          To evaluate the generalizability of our framework beyond intent-driven scenarios, we compare the
+          no-intent variant of our baseline with state-of-the-art co-speech gesture generation models on the
+          BEATv2 dataset. In this setting, the model only sees standing, front-facing gestures without explicit
+          interaction intent, and we focus on gesture naturalness, diversity, and audio co-occurrence quality.
+        </p>
+        <p class="is-size-6 has-text-justified mt-2">
+          The no-intent baseline keeps the speech backbone and Transformer architecture but removes all
+          intent-specific components. Trained and evaluated on English speaker 2 of BEATv2, it is assessed
+          using FGD, Diversity, and Beat Consistency, following existing benchmarks. The quantitative
+          results table shows that our model achieves competitive or superior performance: it matches or
+          approaches strong baselines such as EMAGE in terms of naturalness (low FGD), while achieving
+          higher Beat Consistency, indicating a better alignment between gesture motion and speech rhythm.
+        </p>
+      </div>
+      <div class="column is-5 has-text-centered">
+        <!-- TODO: replace with your BEATv2 ablation figure or table screenshot -->
+        <figure class="image">
+          <img src="./static/images/abl_beatv2.png" alt="Ablation on BEATv2">
+        </figure>
+      </div>
+    </div>
+
+    <!-- C.2 Mixture training schemes -->
+    <div class="columns is-vcentered mt-5">
+      <div class="column is-7">
+        <h3 class="title is-4">C.2 Mixture Training Schemes</h3>
+        <p class="is-size-6 has-text-justified">
+          We analyze different training schemes to validate our mixture batch sampling strategy. The
+          compared schemes include: (1) <em>Batch resampling</em> (ours), which forms each batch with a fixed
+          80/20 ratio of Track-II to Track-I samples; (2) <em>Uniform sampling</em>, which simply mixes all data
+          from both tracks into a single pool; and (3) <em>Two-stage training</em>, which first pre-trains on
+          Track-I and then fine-tunes on Track-II.
+        </p>
+        <p class="is-size-6 has-text-justified mt-2">
+          As summarized in the quantitative results table, batch resampling consistently achieves the best
+          performance on most key metrics, especially on Track-II, where interaction timing and spatial
+          precision are directly evaluated via IAR and IoU. Uniform sampling struggles on Track-II, confirming
+          that the model fails to fully learn from the underrepresented interactive examples. The two-stage
+          scheme also underperforms our method, likely due to partial catastrophic forgetting during fine-tuning.
+          In contrast, mixture sampling exposes the model to both tracks within each step, leading to a unified
+          representation that is simultaneously generalizable and specialized for interactive gestures.
+        </p>
+      </div>
+      <div class="column is-5 has-text-centered">
+        <!-- TODO: replace with your mixture training ablation figure/table -->
+        <figure class="image">
+          <img src="./static/images/abl_mixture.png" alt="Ablation on mixture training schemes">
+        </figure>
+      </div>
+    </div>
+
+    <!-- C.3 Multimodal fusion schemes -->
+    <div class="columns is-vcentered mt-5">
+      <div class="column is-7">
+        <h3 class="title is-4">C.3 Multimodal Fusion Schemes</h3>
+        <p class="is-size-6 has-text-justified">
+          We further compare three multimodal fusion schemes for integrating conditional inputs into the
+          Diffusion Transformer. Our method uses a <em>two-step fusion</em> design, with separate cross-attention
+          modules for audio-related features (speech and transcripts) and intent-related features (targets and
+          intent category) in each DiT block. The second scheme, <em>one-step fusion</em>, merges all conditioning
+          features into a single sequence and uses a single cross-attention module. The third, <em>pre-fusion</em>,
+          concatenates all conditional embeddings with the noisy gesture embeddings at the input, without
+          dedicated cross-attention.
+        </p>
+        <p class="is-size-6 has-text-justified mt-2">
+          The quantitative results table clearly shows that two-step fusion achieves the best overall performance,
+          particularly on Track-II metrics such as IAR and IoU that reflect spatially and temporally precise
+          interactions. One-step fusion remains competitive but slightly weaker, suggesting that mixing all
+          modalities in a single attention stream limits the model’s ability to disentangle temporal and spatial
+          cues. The pre-fusion baseline performs significantly worse, indicating that dynamic, layer-wise
+          cross-attention is crucial for effective multimodal conditioning in this task.
+        </p>
+      </div>
+      <div class="column is-5 has-text-centered">
+        <!-- TODO: replace with your fusion ablation figure/table -->
+        <figure class="image">
+          <img src="./static/images/abl_fusion.png" alt="Ablation on multimodal fusion schemes">
+        </figure>
+      </div>
+    </div>
+
+    <!-- C.4 Spatial representation of intent target -->
+    <div class="columns is-vcentered mt-5">
+      <div class="column is-7">
+        <h3 class="title is-4">C.4 Spatial Representation of Intent Targets</h3>
+        <p class="is-size-6 has-text-justified">
+          Finally, we ablate different spatial representations of the intent target, comparing several coordinate
+          systems for encoding 3D locations. The evaluated options include raw global translation (XYZ),
+          horizontal unit vectors with distance and height, polar coordinates on the XZ-plane with height,
+          and full spherical coordinates with azimuth, elevation, and distance.
+        </p>
+        <p class="is-size-6 has-text-justified mt-2">
+          The quantitative results table shows that no single representation dominates across both Track-I and
+          Track-II. Some specialized encodings, such as spherical coordinates, bring small gains on certain
+          metrics for explicit interaction data, but their performance on more general data is less stable.
+          We therefore adopt global translation as the default representation: it is simple, expressive enough,
+          and yields consistently strong results across tracks without introducing additional inductive biases.
+          This makes it a robust and practical choice for spatially intent-guided gesture generation.
+        </p>
+      </div>
+      <div class="column is-5 has-text-centered">
+        <!-- TODO: replace with your spatial representation ablation figure/table -->
+        <figure class="image">
+          <img src="./static/images/abl_spatial.png" alt="Ablation on spatial representations of intent targets">
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 <!-- ============ GENERATE DEMOS（4个一行，小视频 + 文本） ============ -->

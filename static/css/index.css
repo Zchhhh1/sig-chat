@@ -198,3 +198,22 @@ body {
   height: auto;
 }
 
+/* 整体卡片稍微大一点，看起来有分量 */
+.key-card .card-content {
+  padding: 1.75rem 2.25rem;
+}
+
+/* 保证三块卡片高度比较统一（你可以根据文字多少调这个值） */
+.key-card .columns {
+  min-height: 260px;  /* 想更高可以改成 280 / 300 */
+}
+
+/* 图片裁切得更干净，保持比例 */
+.key-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+

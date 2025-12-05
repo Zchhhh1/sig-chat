@@ -287,83 +287,163 @@
   </div>
 </section>
 
+
+<!-- ============ KEY COPONENT ============ -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered mb-5">Key Components</h2>
 
-    <div class="columns">
-
-      <!-- Dataset Card -->
-      <div class="column">
-        <div class="card" style="border-radius: 8px;">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <!-- TODO: Replace with your dataset figure -->
-              <img src="./static/images/dataset.png" alt="Dataset Overview">
-            </figure>
-          </div>
-          <div class="card-content">
-            <h3 class="title is-5">Dataset</h3>
-            <p class="content is-size-7">
-              • First dataset targeting spatial-interaction intents in conversational gestures.<br>
-              • 11 hours, 7,123 sequences with gaze and left/right pointing behaviors.<br>
-              • Captured via Xsens MVN + HTC Tracker with synchronized audio–motion–trajectory.<br>
-              • Includes audio, transcript, motion, initial pose, intent type, 3D target trajectory, timestamps.<br>
-              • 15 categories of static/dynamic target objects.<br>
-              • Provides decoupled spatial labels for easy transfer across camera setups and robots.
+    <!-- Card 1: Dataset -->
+    <div class="card key-card mb-5">
+      <div class="card-content">
+        <div class="columns is-vcentered">
+          <!-- Text left -->
+          <div class="column is-7">
+            <h3 class="title is-4">3.1 Dataset: SIG-Chat Multi-Modal Corpus</h3>
+            <p class="is-size-6 has-text-justified">
+              SIG-Chat is the first multi-modal conversational gesture dataset with explicit spatial interaction intents.
+              Each sample is annotated with intent type, target location, and interaction timestamps, enabling precise
+              modeling of <em>where</em> and <em>when</em> gestures should occur.
             </p>
+            <ul class="is-size-7 has-text-grey mt-2">
+              <li>• 11 hours, 7,123 gesture sequences with gaze and left/right pointing behaviors.</li>
+              <li>• Captured with Xsens MVN Link and HTC Tracker, synchronizing audio, motion, and 3D target trajectories.</li>
+              <li>• Each sample includes audio, transcript, motion, initial pose text, intent category, 3D trajectory, and timestamps.</li>
+              <li>• 15 types of static/dynamic targets, with decoupled spatial labels for cross-setup and robot deployment.</li>
+            </ul>
+          </div>
+          <!-- Image right -->
+          <div class="column is-5">
+            <figure class="image is-4by3 key-card-image">
+              <!-- TODO: replace with your dataset figure -->
+              <img src="./static/images/dataset.png" alt="SIG-Chat dataset overview">
+            </figure>
           </div>
         </div>
       </div>
-
-      <!-- Baseline Card -->
-      <div class="column">
-        <div class="card" style="border-radius: 8px;">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <!-- TODO: Replace with your model architecture figure -->
-              <img src="./static/images/model.png" alt="Baseline Model">
-            </figure>
-          </div>
-          <div class="card-content">
-            <h3 class="title is-5">Baseline</h3>
-            <p class="content is-size-7">
-              • Diffusion Transformer for spatially precise gesture synthesis.<br>
-              • Inputs: audio (WavLM), transcript (FastText), intent category, CLIP pose text, 3D trajectory.<br>
-              • Multi-modal encoders align all modalities at 20 FPS.<br>
-              • Speech-Aware & Intent-Aware attention inject rhythm and spatial direction.<br>
-              • Produces gestures that match content, prosody, and target direction.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Metrics Card -->
-      <div class="column">
-        <div class="card" style="border-radius: 8px;">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <!-- TODO: Replace with your metrics figure -->
-              <img src="./static/images/metrics.png" alt="Evaluation Metrics">
-            </figure>
-          </div>
-          <div class="card-content">
-            <h3 class="title is-5">Metrics</h3>
-            <p class="content is-size-7">
-              • IAD: angular deviation between execution and target direction.<br>
-              • Gaze: head/face orientation vs. eye–target vector.<br>
-              • Pointing: arm/hand direction vs. wrist–target vector.<br>
-              • IAR@k: spatial accuracy within angle threshold.<br>
-              • IoU@k: temporal accuracy of interaction segments.<br>
-              • FGD / Beat Consistency / Diversity evaluate naturalness and rhythm alignment.
-            </p>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Card 2: Baseline -->
+    <div class="card key-card mb-5">
+      <div class="card-content">
+        <div class="columns is-vcentered">
+          <!-- Text left -->
+          <div class="column is-7">
+            <h3 class="title is-4">3.2 Baseline: Intent-aware Gesture Synthesis</h3>
+            <p class="is-size-6 has-text-justified">
+              We propose an intent-aware baseline built on a Diffusion Transformer (DiT) to generate gestures that are
+              semantically aligned, rhythm-synchronized, and spatially precise.
+            </p>
+            <ul class="is-size-7 has-text-grey mt-2">
+              <li>• Inputs: audio rhythm (WavLM), transcript semantics (FastText), intent category, initial pose description (CLIP), 3D target trajectory.</li>
+              <li>• Multi-modal encoders align all modalities with the gesture sequence at 20 FPS.</li>
+              <li>• Speech-Aware and Intent-Aware attention inject temporal rhythm and spatial intent into gesture features.</li>
+              <li>• The model learns gestures that match what is said, how it is said, and where it refers to in 3D space.</li>
+            </ul>
+          </div>
+          <!-- Image right -->
+          <div class="column is-5">
+            <figure class="image is-4by3 key-card-image">
+              <!-- TODO: replace with your model architecture figure -->
+              <img src="./static/images/model.png" alt="Intent-aware gesture synthesis baseline">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Metrics -->
+    <div class="card key-card">
+      <div class="card-content">
+        <div class="columns is-vcentered">
+          <!-- Text left -->
+          <div class="column is-7">
+            <h3 class="title is-4">3.3 Metrics: Evaluating Spatial-Intent Gestures</h3>
+            <p class="is-size-6 has-text-justified">
+              We design a metric suite to evaluate both spatial and temporal accuracy of interaction gestures, capturing
+              whether intents are executed at the right place and at the right time.
+            </p>
+            <ul class="is-size-7 has-text-grey mt-2">
+              <li>• <strong>Intent Angular Deviation (IAD)</strong>: angle between execution direction and target direction.</li>
+              <li>• Gaze: head/face orientation vs. eye-to-target vector; pointing: arm/hand direction vs. wrist-to-target vector.</li>
+              <li>• <strong>IAR@k</strong>: percentage of frames within an angular threshold (e.g., 15° for pointing, 30° for gaze).</li>
+              <li>• <strong>IoU@k</strong>: temporal overlap between predicted interaction frames and ground-truth segments.</li>
+              <li>• FGD, Beat Consistency, and Diversity further assess motion naturalness, rhythm alignment, and variability.</li>
+            </ul>
+          </div>
+          <!-- Image right -->
+          <div class="column is-5">
+            <figure class="image is-4by3 key-card-image">
+              <!-- TODO: replace with your metrics / evaluation figure -->
+              <img src="./static/images/metrics.png" alt="Gesture interaction evaluation metrics">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- ============ EXPERIMENT ============ -->
+ <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered mb-5">Experimental Results</h2>
+
+    <!-- Card 1 -->
+    <div class="box mb-5" style="padding: 2.5rem;">
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <h3 class="title is-4">Quantitative Performance</h3>
+          <p class="is-size-6 has-text-justified">
+            Our intent-aware baseline significantly surpasses the non-intent model on both gaze and pointing gestures. 
+            For visual intent, IAR@30° improves from 0.473 to 0.710, approaching the ground truth 0.808. 
+            For pointing intent, the minimum IAD decreases from 47.75° to 5.15°, nearly matching the ground truth 4.99°, while IAR@15° improves from 0.204 to 0.846 and IoU@15° from 0.164 to 0.637. 
+            FGD also drops substantially, showing that the generated gestures are not only spatially precise but also natural and realistic.
+          </p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <img src="./static/images/exp1.png" style="max-width: 90%; border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="box mb-5" style="padding: 2.5rem;">
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <h3 class="title is-4">User Study</h3>
+          <p class="is-size-6 has-text-justified">
+            A user study with 20 participants on 50 audio–gesture pairs shows a clear preference for our model. 
+            Compared with the w/o intent version, 78.7% of participants prefer our method for perceptual accuracy, and 70.8% prefer it for speech–gesture fluency. 
+            When compared with ground truth motions, our model achieves competitive preference rates, demonstrating that its perceptual quality is often close to human gestures.
+          </p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <img src="./static/images/exp2.png" style="max-width: 90%; border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Conclusion (one-line style) -->
+    <div class="box" style="padding: 2.5rem;">
+      <div class="columns is-vcentered">
+        <div class="column is-half">
+          <h3 class="title is-4">Conclusion</h3>
+          <p class="is-size-7 has-text-justified" style="max-width: 95%;">
+            SIG-Chat advances conversational gesture generation by jointly modeling gesture style (HOW), timing (WHEN), and spatial target (WHERE), enabling accurate, intentional, and context-aware embodied interactions across both virtual and robotic platforms.
+          </p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <img src="./static/images/exp3.png" style="max-width: 90%; border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 
 
 <!-- ============ GENERATE DEMOS（4个一行，小视频 + 文本） ============ -->

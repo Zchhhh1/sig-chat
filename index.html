@@ -353,32 +353,26 @@
     </div>
 
     <!-- Card 3: Metrics -->
+    <!-- Key Component 3: Metrics (text top, image bottom) -->
     <div class="card key-card">
       <div class="card-content">
-        <div class="columns is-vcentered">
-          <!-- Text left -->
-          <div class="column is-7">
-            <h3 class="title is-4">3.3 Metrics: Evaluating Spatial-Intent Gestures</h3>
-            <p class="is-size-6 has-text-justified">
-              We design a metric suite to evaluate both spatial and temporal accuracy of interaction gestures, capturing
-              whether intents are executed at the right place and at the right time.
-            </p>
-            <ul class="is-size-7 has-text-grey mt-2">
-              <li>• <strong>Intent Angular Deviation (IAD)</strong>: angle between execution direction and target direction.</li>
-              <li>• Gaze: head/face orientation vs. eye-to-target vector; pointing: arm/hand direction vs. wrist-to-target vector.</li>
-              <li>• <strong>IAR@k</strong>: percentage of frames within an angular threshold (e.g., 15° for pointing, 30° for gaze).</li>
-              <li>• <strong>IoU@k</strong>: temporal overlap between predicted interaction frames and ground-truth segments.</li>
-              <li>• FGD, Beat Consistency, and Diversity further assess motion naturalness, rhythm alignment, and variability.</li>
-            </ul>
-          </div>
-          <!-- Image right -->
-          <div class="column is-5">
-            <figure class="image is-4by3 key-card-image">
-              <!-- TODO: replace with your metrics / evaluation figure -->
-              <img src="./static/images/metrics.png" alt="Gesture interaction evaluation metrics">
-            </figure>
-          </div>
-        </div>
+        <h3 class="title is-4">3.3 Metrics: Evaluating Spatial-Intent Gestures</h3>
+        <p class="is-size-6 has-text-justified">
+          We design a metric suite to evaluate both spatial and temporal accuracy of interaction gestures, capturing
+          whether intents are executed at the right place and at the right time.
+        </p>
+        <ul class="is-size-7 has-text-grey mt-2">
+          <li>• <strong>Intent Angular Deviation (IAD)</strong>: angle between execution direction and target direction.</li>
+          <li>• Gaze: head/face orientation vs. eye-to-target vector; pointing: arm/hand direction vs. wrist-to-target vector.</li>
+          <li>• <strong>IAR@k</strong>: percentage of frames within an angular threshold (e.g., 15° for pointing, 30° for gaze).</li>
+          <li>• <strong>IoU@k</strong>: temporal overlap between predicted interaction frames and ground-truth segments.</li>
+          <li>• FGD, Beat Consistency, and Diversity further assess motion naturalness, rhythm alignment, and variability.</li>
+        </ul>
+
+        <figure class="image key-card-image mt-4">
+          
+          <img src="./static/images/metrics.png" alt="Gesture interaction evaluation metrics">
+        </figure>
       </div>
     </div>
 
@@ -425,20 +419,15 @@
       </div>
     </div>
 
-    <!-- Card 3: Conclusion (one-line style) -->
-    <div class="box" style="padding: 2.5rem;">
-      <div class="columns is-vcentered">
-        <div class="column is-half">
-          <h3 class="title is-4">Conclusion</h3>
-          <p class="is-size-7 has-text-justified" style="max-width: 95%;">
-            SIG-Chat advances conversational gesture generation by jointly modeling gesture style (HOW), timing (WHEN), and spatial target (WHERE), enabling accurate, intentional, and context-aware embodied interactions across both virtual and robotic platforms.
-          </p>
-        </div>
-        <div class="column is-half has-text-centered">
-          <img src="./static/images/exp3.png" style="max-width: 90%; border-radius: 10px;">
-        </div>
-      </div>
+    <!-- Conclusion: centered standalone card -->
+    <div class="box" style="padding: 2rem 2.5rem;">
+      <h3 class="title is-4 has-text-centered">Conclusion</h3>
+      <p class="is-size-7 has-text-centered" style="max-width: 640px; margin: 0.5rem auto 0;">
+        SIG-Chat advances conversational gesture generation by jointly modeling gesture style (HOW), timing (WHEN), and spatial target (WHERE),
+        enabling accurate, intentional, and context-aware embodied interactions across both virtual and robotic platforms.
+      </p>
     </div>
+
 
   </div>
 </section>
